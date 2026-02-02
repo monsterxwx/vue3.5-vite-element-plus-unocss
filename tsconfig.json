@@ -1,0 +1,19 @@
+{
+  "compilerOptions": {
+    "baseUrl": ".",
+    "paths": {
+      "@/*": [
+        "src/*",
+      ],
+    },
+    "module": "ESNext",
+    "moduleResolution": "Node",
+    "lib": [
+      "ES2016",
+      "DOM"
+    ],
+    "jsx": "preserve",
+    "jsxFactory": "h",
+    "jsxFragmentFactory": "Fragment",
+  },
+}

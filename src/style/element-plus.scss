@@ -1,0 +1,59 @@
+.el-menu {
+  --el-menu-hover-bg-color: transparent;
+  --el-menu-bg-color: transparent;
+  .el-sub-menu {
+    &.is-active > .el-sub-menu__title {
+      color: var(--el-color-primary);
+    }
+    .el-sub-menu__title {
+      height: 50px;
+      line-height: 50px;
+      & > * {
+        z-index: 1;
+      }
+      &:hover::before {
+        position: absolute;
+        clear: both;
+        border-radius: 4px;
+        background: var(--el-fill-color);
+        inset: 2px 12px;
+        content: "";
+      }
+    }
+  }
+  .el-menu-item {
+    height: 50px;
+    line-height: 50px;
+    & > * {
+      z-index: 1;
+    }
+    &.is-active > * {
+      color: var(--el-color-primary);
+    }
+    &:hover::before {
+      position: absolute;
+      clear: both;
+      border-radius: 4px;
+      background: var(--el-fill-color);
+      inset: 2px 12px;
+      content: "";
+    }
+    &.is-active::before {
+      position: absolute;
+      clear: both;
+      border-radius: 4px;
+      background: var(--el-color-primary-light-8);
+      inset: 2px 12px;
+      content: "";
+    }
+  }
+}
+.el-dialog {
+  --el-border-radius-small: 12px;
+  .el-dialog__title {
+    font-weight: 700;
+  }
+  .el-dialog__body {
+    padding: 24px;
+  }
+}

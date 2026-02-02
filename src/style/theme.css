@@ -1,0 +1,13 @@
+
+html {
+  --bg-color: #fafbfc;
+  --card-bg-color: #ffffff;
+  --hover-bg-color:#edeff0;
+  --border-color: #00000014;
+  &.dark {
+    --bg-color: #000000;
+    --card-bg-color: #161618;
+    --hover-bg-color:#252530;
+    --border-color: #ffffff14;
+  }
+}
