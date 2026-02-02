@@ -15,6 +15,56 @@
 - **数据可视化**: 集成 **ECharts** (通过 `vue-echarts`)，轻松创建丰富的交互式图表。
 - **代码质量**: 配置了 ESLint、Stylelint 和 TypeScript 严格模式，确保代码风格一致性和质量。
 
+## 🌟 核心亮点
+
+### 1. Hook 方式集成表格 (`useTable`)
+
+不再需要手动维护 loading、data、total 等状态，一行 Hook 搞定表格逻辑：
+
+```ts
+// 核心代码示例
+const [registerTable, { reload, loading }] = useTable({
+  api: getUserList, // 你的 API 接口
+  searchInfo: searchForm // 搜索条件
+})
+
+// 在模板中使用
+<BaseTable
+  @register="registerTable"
+  :columns="columns"
+/>
+```
+
+### 2. JSON 配置化表单 (`BaseForm`)
+
+告别繁琐的 template 模版，使用 JSON 配置生成复杂表单，支持 render 和 slot：
+
+```tsx
+const formConfig = {
+  formList: [
+    {
+      type: 'input',
+      prop: 'username',
+      label: '用户名',
+      rules: [{ required: true }]
+    },
+    {
+      type: 'select',
+      prop: 'role',
+      label: '角色',
+      props: {
+        data: [{ label: '管理员', value: 1 }]
+      }
+    },
+    {
+      type: 'render',
+      label: '自定义',
+      render: () => <el-tag>JSX 渲染支持</el-tag>
+    }
+  ]
+}
+```
+
 ## 🛠 技术栈
 
 - **核心框架**: [Vue 3.5](https://vuejs.org/)

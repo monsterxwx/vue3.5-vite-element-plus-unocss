@@ -15,6 +15,56 @@ A modern, lightweight, and high-performance management system template built wit
 - **Data Visualization**: Integrated **ECharts** (via `vue-echarts`) for creating rich interactive charts.
 - **Code Quality**: configured with ESLint, Stylelint, and TypeScript strict mode to ensure code consistency.
 
+## 🌟 Key Highlights
+
+### 1. Hook-based Table Integration (`useTable`)
+
+Stop manually managing loading, data, and pagination states. Handle table logic with a single Hook:
+
+```ts
+// Core example
+const [registerTable, { reload, loading }] = useTable({
+  api: getUserList, // Your API function
+  searchInfo: searchForm // Search parameters
+})
+
+// Usage in template
+<BaseTable
+  @register="registerTable"
+  :columns="columns"
+/>
+```
+
+### 2. JSON-based Form Configuration (`BaseForm`)
+
+Say goodbye to verbose templates. Generate complex forms using JSON configuration, with support for render functions and slots:
+
+```tsx
+const formConfig = {
+  formList: [
+    {
+      type: 'input',
+      prop: 'username',
+      label: 'Username',
+      rules: [{ required: true }]
+    },
+    {
+      type: 'select',
+      prop: 'role',
+      label: 'Role',
+      props: {
+        data: [{ label: 'Admin', value: 1 }]
+      }
+    },
+    {
+      type: 'render',
+      label: 'Custom',
+      render: () => <el-tag>JSX Render Support</el-tag>
+    }
+  ]
+}
+```
+
 ## 🛠 Tech Stack
 
 - **Core**: [Vue 3.5](https://vuejs.org/)
